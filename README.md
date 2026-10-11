@@ -6,9 +6,10 @@ Chromium extension for sending the browser's web traffic through an AmneziaWG co
 
 **Важно:** текущая версия не устанавливает VPN-туннель на macOS или Linux. Native host использует Windows API, native/build.ps1 собирает EXE, а native/install.ps1 регистрирует Native Messaging через реестр Windows.
 
-### macOS Отдельный репозиторий для macOS-версии: [DanOrLove/AmneziaBrowserExtensionMacOS](https://github.com/DanOrLove/AmneziaBrowserExtensionMacOS).
+### macOS Отдельный репозиторий для macOS-версии: https://github.com/DanOrLove/AmneziaBrowserExtensionMacOS
 
-
+### Linus 
+Отдельный репозиторий для Linus-версии: https://github.com/DanOrLove/AmneziaBrowserExtensionLinux
 
 > **Status:** early prototype. The native component has been built for Windows x64. Test with a profile you control before relying on it. See [Limitations and security](#limitations-and-security).
 
