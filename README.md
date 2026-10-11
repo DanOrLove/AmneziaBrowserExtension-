@@ -42,6 +42,18 @@ Chromium extension for sending the browser's web traffic through an AmneziaWG co
 
 Если браузер был открыт во время сборки и регистрации, перезагрузите расширение на странице расширений или перезапустите браузер.
 
+### macOS и Linux
+
+**Важно:** текущая версия не устанавливает VPN-туннель на macOS или Linux. Native host использует Windows API, native/build.ps1 собирает EXE, а native/install.ps1 регистрирует Native Messaging через реестр Windows.
+
+Если нужно только открыть интерфейс расширения:
+
+1. Скачайте и распакуйте репозиторий.
+2. В Chrome или Chromium откройте chrome://extensions.
+3. Включите режим разработчика, нажмите **Загрузить распакованное расширение** и выберите папку extension.
+4. Интерфейс можно осмотреть, но импорт профиля не подключит VPN. При нажатии **Подключить** native host не запустится, и трафик через туннель не пойдёт.
+
+Не запускайте native/build.ps1 и native/install.ps1 на этих системах. Для полноценной поддержки нужно отдельно адаптировать native host под macOS/Linux, добавить сборку и регистрацию Native Messaging для каждой ОС, а затем проверить подключение на реальных системах.
 ### Первое подключение и использование
 
 1. Нажмите значок **Amnezia Browser VPN** на панели расширений.
@@ -138,6 +150,18 @@ The component is built and registered for the current Windows user and does not 
 
 If the browser was open during the build or registration, reload the extension on the extensions page or restart the browser.
 
+### macOS and Linux
+
+**Important:** the current version does not establish a VPN tunnel on macOS or Linux. The native host uses Windows APIs, native/build.ps1 produces an EXE, and native/install.ps1 registers Native Messaging in the Windows registry.
+
+To open the extension interface only:
+
+1. Download and extract the repository.
+2. Open chrome://extensions in Chrome or Chromium.
+3. Enable Developer mode, click **Load unpacked**, and select the extension folder.
+4. You can inspect the interface, but importing a profile will not connect the VPN. Clicking **Connect** cannot start the native host, and browser traffic will not go through the tunnel.
+
+Do not run native/build.ps1 or native/install.ps1 on these systems. Full support requires a native host port for macOS/Linux, build and Native Messaging registration scripts for each OS, and connection testing on those systems.
 ### First connection and usage
 
 1. Click the **Amnezia Browser VPN** toolbar icon.
