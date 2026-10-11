@@ -46,6 +46,8 @@ Chromium extension for sending the browser's web traffic through an AmneziaWG co
 
 **Важно:** текущая версия не устанавливает VPN-туннель на macOS или Linux. Native host использует Windows API, native/build.ps1 собирает EXE, а native/install.ps1 регистрирует Native Messaging через реестр Windows.
 
+Отдельный репозиторий для macOS-версии: [DanOrLove/AmneziaBrowserExtensionMacOS](https://github.com/DanOrLove/AmneziaBrowserExtensionMacOS).
+
 Если нужно только открыть интерфейс расширения:
 
 1. Скачайте и распакуйте репозиторий.
@@ -153,6 +155,8 @@ If the browser was open during the build or registration, reload the extension o
 ### macOS and Linux
 
 **Important:** the current version does not establish a VPN tunnel on macOS or Linux. The native host uses Windows APIs, native/build.ps1 produces an EXE, and native/install.ps1 registers Native Messaging in the Windows registry.
+
+Separate repository for the macOS edition: [DanOrLove/AmneziaBrowserExtensionMacOS](https://github.com/DanOrLove/AmneziaBrowserExtensionMacOS).
 
 To open the extension interface only:
 
