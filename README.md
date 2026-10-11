@@ -48,7 +48,7 @@ Chromium extension for sending the browser's web traffic through an AmneziaWG co
 
 Отдельный репозиторий для macOS-версии: [DanOrLove/AmneziaBrowserExtensionMacOS](https://github.com/DanOrLove/AmneziaBrowserExtensionMacOS).
 
-Если нужно только открыть интерфейс расширения:
+### Если нужно только открыть интерфейс расширения:
 
 1. Скачайте и распакуйте репозиторий.
 2. В Chrome или Chromium откройте chrome://extensions.
