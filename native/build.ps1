@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+﻿$ErrorActionPreference = "Stop"
 $nativeDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $goCmd = Get-Command go -ErrorAction SilentlyContinue
 if (-not $goCmd) {
