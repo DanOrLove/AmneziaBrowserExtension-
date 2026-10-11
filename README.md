@@ -2,6 +2,14 @@
 
 Chromium extension for sending the browser's web traffic through an AmneziaWG configuration. The extension imports local `.conf` profiles and controls a Windows Native Messaging host. The host runs AmneziaWG in a userspace network stack and exposes a loopback SOCKS5 proxy; Windows system routes and other applications are not changed.
 
+### macOS и Linux
+
+**Важно:** текущая версия не устанавливает VPN-туннель на macOS или Linux. Native host использует Windows API, native/build.ps1 собирает EXE, а native/install.ps1 регистрирует Native Messaging через реестр Windows.
+
+### macOS Отдельный репозиторий для macOS-версии: [DanOrLove/AmneziaBrowserExtensionMacOS](https://github.com/DanOrLove/AmneziaBrowserExtensionMacOS).
+
+
+
 > **Status:** early prototype. The native component has been built for Windows x64. Test with a profile you control before relying on it. See [Limitations and security](#limitations-and-security).
 
 ## Русский
@@ -42,11 +50,6 @@ Chromium extension for sending the browser's web traffic through an AmneziaWG co
 
 Если браузер был открыт во время сборки и регистрации, перезагрузите расширение на странице расширений или перезапустите браузер.
 
-### macOS и Linux
-
-**Важно:** текущая версия не устанавливает VPN-туннель на macOS или Linux. Native host использует Windows API, native/build.ps1 собирает EXE, а native/install.ps1 регистрирует Native Messaging через реестр Windows.
-
-Отдельный репозиторий для macOS-версии: [DanOrLove/AmneziaBrowserExtensionMacOS](https://github.com/DanOrLove/AmneziaBrowserExtensionMacOS).
 
 ### Если нужно только открыть интерфейс расширения:
 
