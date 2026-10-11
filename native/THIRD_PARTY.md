@@ -1,0 +1,1 @@
+Локальный сетевой туннель использует библиотеку `github.com/amnezia-vpn/amneziawg-go/v3` от Amnezia VPN. Зависимость подключается через Go Modules; её исходный код и лицензия остаются в официальном репозитории Amnezia. Код компонента `main.go` этого проекта является нашим Native Messaging host и SOCKS5 мостом.

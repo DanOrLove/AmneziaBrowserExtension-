@@ -1,3 +1,0 @@
-enum BuildConfig {
-  static let appGroupIdentifier = "@BUILD_IOS_GROUP_IDENTIFIER@"
-}

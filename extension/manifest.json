@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Amnezia Browser VPN",
+  "version": "0.2.0",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjV91LAqQWiBgeBXK97eM1Y9Yp4G8+SZ7HvP5mwqKgbxE3o2g1Dmrw9HvPCDQZnqc2krlOopEokxk36c8gED8PYGbAwTHVNmTmWKcKMhq49FTO6ACtUng1sISRUuWW72GZZuX3BWpvA5PyGlFucQlVRkyupLgg6lkBy1wGzUVEv+ha8/5hg9miKcqIqe8sygG17w1Sz0a+NHSKUXoIuyuzOTCFQYPNprmaKLGB6lXctJNgIhf4yYoLyzRsXV+cEq4vTb43V2y7A/xw5nszbrDrXBFGAJmoM/bb3H+LWUQd8wpfDZbAEQJOiGXLhwPFrxioZMh/4upxXj/HixhDpn+NQIDAQAB",
+  "description": "Импорт и управление конфигами AmneziaWG для браузерного VPN-компаньона.",
+  "permissions": ["storage", "proxy", "privacy", "nativeMessaging"],
+  "background": { "service_worker": "service-worker.js" },
+  "action": {
+    "default_title": "Amnezia Browser VPN",
+    "default_popup": "popup.html"
+  }
+}

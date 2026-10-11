@@ -1,3 +1,0 @@
-module Style
-
-singleton AmneziaStyle 1.0 AmneziaStyle.qml

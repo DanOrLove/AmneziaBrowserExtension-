@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Amnezia Browser VPN</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="brand-mark" aria-hidden="true">A</div>
+        <div><h1>Amnezia Browser VPN</h1><p>Локальное управление конфигами</p></div>
+      </header>
+
+      <section class="connection-card" aria-live="polite">
+        <span id="status-dot" class="status-dot"></span>
+        <div><strong id="connection-title">Туннель не подключён</strong><p id="connection-subtitle">Выберите профиль и нажмите «Подключить»</p></div>
+      </section>
+
+      <section>
+        <div class="section-heading"><h2>Мои конфиги</h2><span id="profile-count" class="count">0</span></div>
+        <label class="field-label" for="profiles">Выберите профиль</label>
+        <div class="profile-row">
+          <select id="profiles" aria-label="Сохранённые конфиги" disabled><option value="">Нет сохранённых конфигов</option></select>
+          <button id="delete-profile" class="icon-button" title="Удалить выбранный конфиг" aria-label="Удалить выбранный конфиг" disabled>×</button>
+        </div>
+        <p id="profile-details" class="details">Добавьте конфиг AmneziaWG в формате .conf.</p>
+        <button id="connect" class="primary-button connect-button" disabled>Подключить</button>
+      </section>
+
+      <section class="import-section">
+        <div class="section-heading"><h2>Добавить конфиг</h2></div>
+        <label class="file-button" for="config-file">Выбрать файл .conf</label>
+        <input id="config-file" type="file" accept=".conf,text/plain" hidden>
+        <div class="divider"><span>или вставьте текст</span></div>
+        <label class="field-label" for="config-text">Содержимое конфига</label>
+        <textarea id="config-text" spellcheck="false" placeholder="[Interface]&#10;PrivateKey = …&#10;Address = …&#10;&#10;[Peer]&#10;PublicKey = …&#10;Endpoint = …"></textarea>
+        <label class="field-label name-label" for="config-name">Название профиля</label>
+        <input id="config-name" type="text" maxlength="48" placeholder="Например, Домашний VPN">
+        <button id="save-config" class="secondary-button">Сохранить конфиг</button>
+        <p id="notice" role="status" aria-live="polite"></p>
+      </section>
+
+      <footer>Конфиги содержат приватный ключ и хранятся локально в профиле Chromium.</footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
