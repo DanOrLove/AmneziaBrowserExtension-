@@ -8,8 +8,8 @@ Chromium extension for sending the browser's web traffic through an AmneziaWG co
 
 ### macOS Отдельный репозиторий для macOS-версии: https://github.com/DanOrLove/AmneziaBrowserExtensionMacOS
 
-### Linus 
-Отдельный репозиторий для Linus-версии: https://github.com/DanOrLove/AmneziaBrowserExtensionLinux
+### Linux
+Отдельный репозиторий для Linux-версии: https://github.com/DanOrLove/AmneziaBrowserExtensionLinux
 
 > **Status:** early prototype. The native component has been built for Windows x64. Test with a profile you control before relying on it. See [Limitations and security](#limitations-and-security).
 
@@ -36,20 +36,23 @@ Chromium extension for sending the browser's web traffic through an AmneziaWG co
 ### Установка
 
 1. Скачайте ZIP репозитория с GitHub и распакуйте его в постоянную локальную папку. Не удаляйте и не перемещайте папку после регистрации Native Messaging: запись Windows указывает на полный путь к собранной программе.
-2. Откройте PowerShell в корневой папке проекта и выполните:
+2. Дважды нажмите `install.bat`. Установщик проверит Go и архитектуру Windows, соберёт Native Messaging host, зарегистрирует его для Chrome и Edge в HKCU без прав администратора и откроет страницу расширений. При первой сборке Go скачает зависимости, поэтому нужен интернет.
+
+   Если хотите выполнить команды вручную, откройте PowerShell в корневой папке проекта:
 
    ```powershell
    powershell -ExecutionPolicy Bypass -File .\native\build.ps1
    powershell -ExecutionPolicy Bypass -File .\native\install.ps1
    ```
 
-   Сборка скачивает Go-модуль `github.com/amnezia-vpn/amneziawg-go/v3` и создаёт `native\AmneziaBrowserVpnHost.exe`. Скрипт установки регистрирует Native Messaging в HKCU для Chrome и Edge и привязывает его к ID расширения из `extension\manifest.json`.
+   Сборка создаёт `native\AmneziaBrowserVpnHost.exe`; регистрация связывает host с ID из `extension\manifest.json`.
 
-3. В Chrome откройте `chrome://extensions`, в Edge — `edge://extensions`.
-4. Включите **Режим разработчика**, нажмите **Загрузить распакованное расширение** и выберите папку `extension` внутри распакованного репозитория.
-5. Подтвердите разрешения расширения для прокси, настроек приватности и Native Messaging.
+3. На открывшейся странице `chrome://extensions` (или `edge://extensions`) включите **Режим разработчика**, нажмите **Загрузить распакованное расширение** и выберите папку `extension` внутри проекта.
+4. Подтвердите разрешения расширения для прокси, настроек приватности и Native Messaging.
 
 Если браузер был открыт во время сборки и регистрации, перезагрузите расширение на странице расширений или перезапустите браузер.
+
+> Установщик автоматически настраивает нативный компонент, но Chrome требует вручную выбрать локальную папку расширения. Для прямой установки расширения в один клик оно должно быть опубликовано в Chrome Web Store.
 
 
 ### Если нужно только открыть интерфейс расширения:
@@ -72,7 +75,7 @@ Chromium extension for sending the browser's web traffic through an AmneziaWG co
 
 ### Сборка из исходников и обновление
 
-После изменения кода повторно соберите и зарегистрируйте локальный компонент:
+После обновления исходников запустите `install.bat` ещё раз, чтобы пересобрать и зарегистрировать host. Затем перезагрузите расширение на `chrome://extensions` или `edge://extensions`. Если нужно выполнить только вручную:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\native\build.ps1
@@ -141,20 +144,23 @@ The component is built and registered for the current Windows user and does not 
 ### Installation
 
 1. Download the repository ZIP from GitHub and extract it to a permanent local folder. Do not move or delete that folder after registering Native Messaging: the Windows registry entry contains the absolute path to the host executable.
-2. Open PowerShell in the project root and run:
+2. Double-click `install.bat`. It checks Go and the Windows architecture, builds the Native Messaging host, registers it under HKCU for Chrome and Edge without administrator rights, and opens the extensions page. The first build downloads Go dependencies and needs internet access.
+
+   To run the commands manually instead, open PowerShell in the project root:
 
    ```powershell
    powershell -ExecutionPolicy Bypass -File .\native\build.ps1
    powershell -ExecutionPolicy Bypass -File .\native\install.ps1
    ```
 
-   The build downloads `github.com/amnezia-vpn/amneziawg-go/v3` and creates `native\AmneziaBrowserVpnHost.exe`. The installer registers Native Messaging under HKCU for Chrome and Edge and allows the extension ID defined by `extension\manifest.json`.
+   The build creates `native\AmneziaBrowserVpnHost.exe`; registration connects the host to the extension ID in `extension\manifest.json`.
 
-3. Open `chrome://extensions` in Chrome or `edge://extensions` in Edge.
-4. Enable **Developer mode**, choose **Load unpacked**, and select the repository's `extension` folder.
-5. Approve the extension permissions for proxy settings, privacy settings, and Native Messaging.
+3. On the opened `chrome://extensions` (or `edge://extensions`) page, enable **Developer mode**, choose **Load unpacked**, and select the repository's `extension` folder.
+4. Approve the extension permissions for proxy settings, privacy settings, and Native Messaging.
 
 If the browser was open during the build or registration, reload the extension on the extensions page or restart the browser.
+
+> The installer configures the native component automatically, but Chrome requires you to select the local extension folder manually. Direct one-click extension installation requires publishing it in the Chrome Web Store.
 
 ### macOS and Linux
 
@@ -182,7 +188,7 @@ Check the public IP in the browser before and after connecting. Other Windows ap
 
 ### Rebuild and update
 
-After changing the code, rebuild and register the native component again:
+After updating the source, run `install.bat` again to rebuild and register the host. Then reload the extension on `chrome://extensions` or `edge://extensions`. To run only the commands manually:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\native\build.ps1
